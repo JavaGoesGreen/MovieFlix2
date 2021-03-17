@@ -10,8 +10,8 @@ public class Menu {
         System.out.println("*  Por favor, selecciona una opcion: ");
         System.out.println("*    1.-Agregar una pelicula");
         System.out.println("*    2.-Modificar una pelicula");
-        System.out.println("*    3.-");
-        System.out.println("*    4.-");
+        System.out.println("*    3.-Eliminar una pelicula");
+        System.out.println("*    4.-Listar catalogo");
         System.out.println("*    5.-");
         System.out.println("*    6.-");
         System.out.println("*    7.-");

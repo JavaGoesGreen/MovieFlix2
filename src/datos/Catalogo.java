@@ -33,9 +33,29 @@ public class Catalogo implements InterfazCatalogo {
 			return true;
 		}
 	}
-
+	
+	
+	
+	public boolean existeCodigo(int cod) {
+		return catalogo.containsKey(cod);
+	}
+	
+	
 	@Override
 	public void eliminarPelicula(int codigo)throws CatalogoException {
 		  catalogo.remove(codigo);
 	}
+
+	@Override
+	public boolean modificarPelicula(int codigo, Pelicula p) throws CatalogoException {
+		if (catalogo.containsKey(codigo)) {
+			catalogo.put(codigo, p);
+		} else {
+			throw new CatalogoException("Esta pelicula no existe todavia", 2);
+		}
+		return true;
+	}
+	
+	
+	
 }
