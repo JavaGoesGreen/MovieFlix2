@@ -1,5 +1,7 @@
 package model;
 
+import utilidades.LecturaDatos;
+
 public class Pelicula {
 
 	private String nombre;
@@ -50,6 +52,17 @@ public class Pelicula {
 
 	public void setCategoria(Categorias categoria) {
 		this.categoria = categoria;
+	}
+	
+	public void crearPelicula() {
+		//Se introduce las visualizaciones y la valoracion?
+		try {
+			this.nombre=LecturaDatos.leerString("Introduce el nombre de la pelicula");
+			this.categoria=Categorias.dimeUnaCategoria(LecturaDatos.leerInt());
+			this.fechaEstreno=LecturaDatos.leerInt("Introduce la fecha de la pelicula");
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
 	}
 
 	@Override

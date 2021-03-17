@@ -1,8 +1,10 @@
 package model;
 
+import model.Categorias;
+
 public enum Categorias {
 	
-	policiaca(5),  romantica(7),  aventuras(3),  comedia(6), animacion(5), thriller(10);
+	policiaca(1),  romantica(2),  aventuras(3),  comedia(4), animacion(5), thriller(6);
 	
 	private int Categoria;
 
@@ -18,12 +20,15 @@ public enum Categorias {
 		Categoria = categoria;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	private static Categorias[] values = null;
+
+    public static Categorias dimeUnaCategoria(int val) {
+        if (Categorias.values == null) {
+            Categorias.values = Categorias.values();
+        }
+       
+        return Categorias.values[val];
+    }	
+		
 
 }
