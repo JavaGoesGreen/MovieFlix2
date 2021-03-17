@@ -4,20 +4,22 @@ import utilidades.LecturaDatos;
 
 public class Pelicula {
 
+	// Atributos
 	private String nombre;
 	private int fechaEstreno;
 	private int valoracion;
 	private int visualizaciones;
 	private Categorias categoria;
 
+	// Constructores
 	public Pelicula() {
 		super();
 	}
 
+	// Getter y setter
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -54,6 +56,7 @@ public class Pelicula {
 		this.categoria = categoria;
 	}
 	
+	// Métodos adicionales
 	public void crearPelicula() {
 		//Se introduce las visualizaciones y la valoracion?
 		try {
@@ -65,11 +68,11 @@ public class Pelicula {
 		}
 	}
 
-
+	// toString
 	@Override
 	public String toString() {
-		return "Pelicula [nombre=" + nombre + ", fechaEstreno=" + fechaEstreno + ", valoracion=" + valoracion
-				+ ", visualizaciones=" + visualizaciones + ", categoria=" + categoria + "]";
+		return "Datos de pelicula\n > Nombre: " + nombre + "\n > Fecha de estreno: " + fechaEstreno + "\n > Valoración media: " + valoracion
+				+ "\n > Nº visualizaciones: " + visualizaciones + "\n > Categoria: " + categoria + "\n";
 	}
 
 }

@@ -7,23 +7,24 @@ import model.Pelicula;
 
 public class Catalogo implements InterfazCatalogo {
 	
-	
+	// Atributo
 	private Map<Integer, Pelicula> catalogo;
 	
+	// Constructores
 	public Catalogo() {
 		catalogo = new HashMap<>();
 	}
 	
+	// Getter y setter
 	public Map<Integer, Pelicula> getCatalogo(){
 		return catalogo;
 	}
-	
 	public void setCatalogo(Map<Integer, Pelicula> catalogo) {
 		this.catalogo = catalogo;
 	}
 	
+	// Métodos adicionales
 	public boolean agregarPelicula(int codigo, Pelicula p) throws CatalogoException {
-
 		if (catalogo.containsKey(codigo)) {
 			//Necesario system out?
 			System.out.println(codigo + "ya fue agregada anteriormente.");
@@ -33,19 +34,16 @@ public class Catalogo implements InterfazCatalogo {
 			return true;
 		}
 	}
-	
-	
-	
 	public boolean existeCodigo(int cod) {
 		return catalogo.containsKey(cod);
 	}
-	
 	
 	@Override
 	public void eliminarPelicula(int codigo)throws CatalogoException {
 		  catalogo.remove(codigo);
 	}
 
+	// toString
 	@Override
 	public boolean modificarPelicula(int codigo, Pelicula p) throws CatalogoException {
 		if (catalogo.containsKey(codigo)) {

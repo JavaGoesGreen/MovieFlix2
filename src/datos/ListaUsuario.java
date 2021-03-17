@@ -20,24 +20,24 @@ public class ListaUsuario implements InterfazListaUsuarios {
 	// Atributo
 	private Map<Integer, Usuario> listaUsuarios;
 
-	// Metodos
+	// Constructores
 	public ListaUsuario() {
 		this.listaUsuarios = new HashMap<>();
 	}
-
 	public ListaUsuario(Map<Integer, Usuario> mapaUsuarios) {
 		super();
 		this.listaUsuarios = mapaUsuarios;
 	}
 
+	// Getter y setter
 	public Map<Integer, Usuario> getMapaUsuarios() {
 		return listaUsuarios;
 	}
-
 	public void setMapaUsuarios(Map<Integer, Usuario> mapaUsuarios) {
 		this.listaUsuarios = mapaUsuarios;
 	}
 
+	// Métodos
 	public void verUsuarios() {
 		Integer clave;
 		Iterator<Integer> usuarios = listaUsuarios.keySet().iterator();
@@ -48,7 +48,6 @@ public class ListaUsuario implements InterfazListaUsuarios {
 		}
 
 	}
-
 	public void agregarUsuario(int codigo, Usuario usuario) {
 		if (listaUsuarios.containsKey(codigo)) {
 			System.out.println("Este usuario ya existe");
@@ -56,17 +55,13 @@ public class ListaUsuario implements InterfazListaUsuarios {
 			listaUsuarios.put(codigo, usuario);
 		}
 	}
-
 	public void eliminarUsuario(int codigo) {
 		listaUsuarios.remove(codigo);
-
 	}
-
 	public void modificarUsuario(int codigo) {
 		Usuario usuario = listaUsuarios.get(codigo);
 		System.out.println(usuario);
-		System.out.println("QuÃ© quieres modificar?");
-
+		System.out.println("Qué quieres modificar?");
 		int modificacion = LecturaDatos.leerInt("1- Nombre\n2- Fecha de nacimiento\n3- Ciudad de Residencia");
 		switch (modificacion) {
 		case 1:
@@ -75,12 +70,17 @@ public class ListaUsuario implements InterfazListaUsuarios {
 			usuario.setFechaNacimiento(LecturaDatos.leerInt("Nueva fecha: "));
 		case 3:
 			usuario.setCiudadResidencia(LecturaDatos.leerString("Nueva ciudad: "));
-
 		}
-
 	}
-
 	public boolean comprobarUsuario(int codigo) {
 		return listaUsuarios.containsKey(codigo);
 	}
+
+	//toString
+	@Override
+	public String toString() {
+		return "ListaUsuario [listaUsuarios=" + listaUsuarios + "]";
+	}
+
+
 }
