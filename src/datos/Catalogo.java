@@ -22,7 +22,8 @@ public class Catalogo implements InterfazCatalogo {
 		this.catalogo = catalogo;
 	}
 	
-	public boolean altaPelicula(int codigo, Pelicula p) throws CatalogoException {
+	public boolean agregarPelicula(int codigo, Pelicula p) throws CatalogoException {
+
 		if (catalogo.containsKey(codigo)) {
 			//Necesario system out?
 			System.out.println(codigo + "ya fue agregada anteriormente.");
@@ -32,6 +33,9 @@ public class Catalogo implements InterfazCatalogo {
 			return true;
 		}
 	}
-	
-	
+
+	@Override
+	public void eliminarPelicula(int codigo)throws CatalogoException {
+		  catalogo.remove(codigo);
+	}
 }
