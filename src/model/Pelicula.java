@@ -65,6 +65,7 @@ public class Pelicula {
 		}
 	}
 
+
 	@Override
 	public String toString() {
 		return "Pelicula [nombre=" + nombre + ", fechaEstreno=" + fechaEstreno + ", valoracion=" + valoracion
