@@ -23,7 +23,7 @@ public class Servicios implements InterfazServicios {
 	}
 	
     public boolean agregarPelicula(Pelicula p) throws CatalogoException  {
-        //Habria que decidir un algoritmo de códigos (una funciona Hash)
+        //Habria que decidir un algoritmo de cï¿½digos (una funciona Hash)
         return catalogo.agregarPelicula((int) (Math.random() * 100000), p);
     }
 
@@ -32,7 +32,5 @@ public class Servicios implements InterfazServicios {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
 
 }

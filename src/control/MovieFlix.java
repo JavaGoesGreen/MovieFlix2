@@ -15,7 +15,7 @@ public class MovieFlix {
 			Menu.mostrarMenu();
 			seguir = this.seleccionOpciones();
 		} while (seguir);
-		System.out.println("*** Fin de sección de consulta ***");
+		System.out.println("*** Fin de secciï¿½n de consulta ***");
 	}
 
 	public boolean seleccionOpciones() {
@@ -42,8 +42,8 @@ public class MovieFlix {
 	}
 
 	private boolean salir() throws Exception {
-		String decidir = LecturaDatos.leerString(" ¿Quieres salir?(S/N");
+		String decidir = LecturaDatos.leerString(" ï¿½Quieres salir?(S/N");
 		return (decidir.toUpperCase().charAt(0) != 'S');
 	}
 
-}
+

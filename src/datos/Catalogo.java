@@ -23,6 +23,7 @@ public class Catalogo implements InterfazCatalogo {
 	}
 	
 	public boolean agregarPelicula(int codigo, Pelicula p) throws CatalogoException {
+
 		if (catalogo.containsKey(codigo)) {
 			//Necesario system out?
 			System.out.println(codigo + "ya fue agregada anteriormente.");
@@ -37,6 +38,4 @@ public class Catalogo implements InterfazCatalogo {
 	public void eliminarPelicula(int codigo)throws CatalogoException {
 		  catalogo.remove(codigo);
 	}
-	
-	
 }

@@ -1,10 +1,12 @@
 package model;
 
+
 import model.Categorias;
 
 public enum Categorias {
 	
 	policiaca(1),  romantica(2),  aventuras(3),  comedia(4), animacion(5), thriller(6);
+
 	
 	private int Categoria;
 
@@ -29,6 +31,6 @@ public enum Categorias {
        
         return Categorias.values[val];
     }	
-		
+
 
 }

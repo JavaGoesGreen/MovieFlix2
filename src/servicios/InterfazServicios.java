@@ -10,4 +10,6 @@ public interface InterfazServicios {
 	public boolean agregarPelicula (int codigo, Pelicula p) throws CatalogoException;
 	
 	public boolean eliminarPelicula() throws CatalogoException, Exception;
+
+
 }
