@@ -3,28 +3,28 @@ package excepciones;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CatalogoException extends Exception {
+public class UsuarioException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
 	private Level level;
 
-	public CatalogoException() {
+	public UsuarioException() {
 	}
 
-	public CatalogoException(String message) {
+	public UsuarioException(String message) {
 		super(message);
 	}
 
-	public CatalogoException(Throwable cause) {
+	public UsuarioException(Throwable cause) {
 		super(cause);
 	}
 
-	public CatalogoException(String message, Throwable cause) {
+	public UsuarioException(String message, Throwable cause) {
 		super(message, cause);
 	}
 	
-	public CatalogoException(String message, int tipo) {
+	public UsuarioException(String message, int tipo) {
 		super(message);
 		setLevel(tipo);
 	}	
@@ -49,7 +49,7 @@ public class CatalogoException extends Exception {
 
 	@Override
 	public String toString() {
-		Logger.getLogger(CatalogoException.class.getName()).log(level, null, super.getMessage());
+		Logger.getLogger(UsuarioException.class.getName()).log(level, null, super.getMessage());
 		return super.getMessage();
 	}
 
