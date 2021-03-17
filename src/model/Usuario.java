@@ -9,54 +9,59 @@
 
 package model;
 
-public class Usuario {
-	
-	// Hola
+import utilidades.LecturaDatos;
 
+public class Usuario {
+
+	// Atributos
 	private String nombreUsuario;
 	private int fechaNacimiento;
 	private String ciudadResidencia;
 
-	public Usuario() {
-		super();
-
-	}
-
+	//Constructores
+	public Usuario() {}
 	public Usuario(String nombreUsuario, int fechaNacimiento, String ciudadResidencia) {
-		super();
 		this.nombreUsuario = nombreUsuario;
 		this.fechaNacimiento = fechaNacimiento;
 		this.ciudadResidencia = ciudadResidencia;
 	}
 
+	// Getter y setter
 	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
-
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-
 	public int getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-
 	public void setFechaNacimiento(int fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
 	public String getCiudadResidencia() {
 		return ciudadResidencia;
 	}
-
 	public void setCiudadResidencia(String ciudadResidencia) {
 		this.ciudadResidencia = ciudadResidencia;
 	}
+	
+	// Métodos adicionales
+	public void crearUsuario() {
+		try {
+			this.nombreUsuario=LecturaDatos.leerString("Introduce el nombre del usuario");
+			this.ciudadResidencia=LecturaDatos.leerString("Introduce el nombre de la ciudad de residencia");
+			this.fechaNacimiento=LecturaDatos.leerInt("Introduce la fecha de nacimiento");
+		}catch(Exception e) {
+			e.getStackTrace();
+		}
+	}
 
+	// toString
 	@Override
 	public String toString() {
-		return "Usuario [nombreUsuario=" + nombreUsuario + ", fechaNacimiento=" + fechaNacimiento
-				+ ", ciudadResidencia=" + ciudadResidencia + "]";
+		return "Datos de usuario\n > Nombre: " + nombreUsuario + "\n > Fecha de nacimiento: " + fechaNacimiento
+				+ "\n > Ciudad de residencia=" + ciudadResidencia + "\n";
 	}
 
 }

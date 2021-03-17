@@ -8,17 +8,18 @@
  */
 package datos;
 
+import excepciones.UsuarioException;
 import model.Usuario;
 
 public interface InterfazListaUsuarios {
 
-	public void verUsuarios();
+	public void verUsuarios() throws UsuarioException;
 
-	public void agregarUsuario(int codigo, Usuario usuario);
+	public void agregarUsuario(int codigo, Usuario usuario) throws UsuarioException;
 
-	public void eliminarUsuario(int codigo);
+	public void eliminarUsuario(int codigo) throws UsuarioException;
 
-	public void modificarUsuario(int codigo);
+	public void modificarUsuario(int codigo) throws UsuarioException;
 	
 	public boolean comprobarUsuario (int codigo);
 	
