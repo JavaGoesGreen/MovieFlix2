@@ -1,9 +1,9 @@
 package utilidades;
 //libreria para usar métodos Scanner
 import java.util.Scanner;
-import java.time.LocalDate;
+
+@SuppressWarnings ("resource")
 public class LecturaDatos {
-	//metodos externos a la clase --> static
 	public static String leerString() {
 		return new Scanner(System.in).nextLine();
 	}
@@ -18,7 +18,6 @@ public class LecturaDatos {
 		System.out.print(msg);
 		return leerDouble();
 	}
-	
 	public static int leerInt() {
 		return new Scanner(System.in).nextInt();
 	}
@@ -40,7 +39,5 @@ public class LecturaDatos {
 		System.out.print(msg);
 		return leerBoolean();
 	}
-	
-	
 }
 	
