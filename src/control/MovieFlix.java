@@ -27,6 +27,10 @@ public class MovieFlix {
 				// AGREGAR PELICULA
 				servicios.agregarPelicula();
 				break;
+				//ELIMINAR PELICULA
+			case 3:
+				servicios.eliminarPelicula();
+				break;
 			case 0:
 				continuar = salir();
 				break;
@@ -45,5 +49,4 @@ public class MovieFlix {
 		String decidir = LecturaDatos.leerString(" �Quieres salir?(S/N");
 		return (decidir.toUpperCase().charAt(0) != 'S');
 	}
-
-
+}
