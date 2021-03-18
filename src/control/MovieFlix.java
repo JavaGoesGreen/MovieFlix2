@@ -27,14 +27,21 @@ public class MovieFlix {
 				// AGREGAR PELICULA
 				servicios.agregarPelicula();
 				break;
+				//MODIFICAR PELICULA
+			case 2:
+				servicios.modificarPelicula();
 				//ELIMINAR PELICULA
 			case 3:
 				servicios.eliminarPelicula();
 				break;
+				//LISTAR PELICULAS
+			case 4:
+				servicios.listarPeliculas();
 			case 0:
 				continuar = salir();
 				break;
 			}
+
 
 		} catch (CatalogoException e) {
 			System.out.println("error: " + e.toString());

@@ -2,8 +2,12 @@ package datos;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import java.util.Iterator;
+
 import excepciones.CatalogoException;
 import model.Pelicula;
+import utilidades.LecturaDatos;
 
 public class Catalogo implements InterfazCatalogo {
 	
@@ -43,17 +47,36 @@ public class Catalogo implements InterfazCatalogo {
 		  catalogo.remove(codigo);
 	}
 
-	// toString
 	@Override
-	public boolean modificarPelicula(int codigo, Pelicula p) throws CatalogoException {
-		if (catalogo.containsKey(codigo)) {
-			catalogo.put(codigo, p);
-		} else {
-			throw new CatalogoException("Esta pelicula no existe todavia", 2);
+	public boolean modificarPelicula(int codigo) throws CatalogoException {
+		Pelicula pelicula=catalogo.get(codigo);
+		System.out.println(pelicula);
+		
+		System.out.println("Que pelicula quieres modificar");
+		
+		int modificacion=LecturaDatos.leerInt("1- Nombre\n2- Fecha de estreno\n3 Categoria");
+		switch(modificacion) {
+		case 1:
+			pelicula.setNombre(LecturaDatos.leerString("Nuevo nombre de pelicula"));
+		case 2:
+			pelicula.setFechaEstreno(LecturaDatos.leerInt("Nueva fecha de estreno de pelicula"));
+		case 3:
+			pelicula.setCategoria(LecturaDatos.leerInt("Escoge la categoria de la pelicula"));
 		}
+		
 		return true;
 	}
-	
+
+	@Override
+	public void listaPeliculas() throws CatalogoException {
+		Integer codigo;
+		Iterator<Integer>peliculas=catalogo.keySet().iterator();
+		System.out.println("*** Listado de Peliculas ***");
+		while(peliculas.hasNext()) {
+			codigo=peliculas.next();
+			System.out.println("*"+codigo+"*"+catalogo.get(codigo));
+		}	
+	}
 	
 	
 }
