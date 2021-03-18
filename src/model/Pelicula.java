@@ -56,6 +56,11 @@ public class Pelicula {
 		this.categoria = categoria;
 	}
 	
+	public void setCategoria(int categoria) {
+		this.categoria =  Categorias.dimeCategorias(categoria);
+	}
+
+	
 	// Métodos adicionales
 	public void crearPelicula() {
 		//Se introduce las visualizaciones y la valoracion?
