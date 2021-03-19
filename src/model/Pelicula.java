@@ -1,10 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 import utilidades.LecturaDatos;
 
-public class Pelicula {
+public class Pelicula implements Serializable {
 
 	// Atributos
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private int fechaEstreno;
 	private int valoracion;
@@ -14,6 +17,13 @@ public class Pelicula {
 	// Constructores
 	public Pelicula() {
 		super();
+	}
+
+	public Pelicula(String nombre, int fechaEstreno, Categorias categoria) {
+		super();
+		this.nombre = nombre;
+		this.fechaEstreno = fechaEstreno;
+		this.categoria = categoria;
 	}
 
 	// Getter y setter
