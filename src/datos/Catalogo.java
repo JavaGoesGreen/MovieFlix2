@@ -27,7 +27,7 @@ public class Catalogo implements InterfazCatalogo {
 		this.catalogo = catalogo;
 	}
 	
-	// Métodos adicionales
+	// Mï¿½todos adicionales
 	public boolean agregarPelicula(int codigo, Pelicula p) throws CatalogoException {
 		if (catalogo.containsKey(codigo)) {
 			//Necesario system out?
@@ -43,8 +43,9 @@ public class Catalogo implements InterfazCatalogo {
 	}
 	
 	@Override
-	public void eliminarPelicula(int codigo)throws CatalogoException {
+	public boolean eliminarPelicula(int codigo)throws CatalogoException {
 		  catalogo.remove(codigo);
+		  return true;
 	}
 
 	@Override
@@ -52,30 +53,31 @@ public class Catalogo implements InterfazCatalogo {
 		Pelicula pelicula=catalogo.get(codigo);
 		System.out.println(pelicula);
 		
-		System.out.println("Que pelicula quieres modificar");
+		System.out.println("Que pelicula quieres modificar: ");
 		
-		int modificacion=LecturaDatos.leerInt("1- Nombre\n2- Fecha de estreno\n3 Categoria");
+		int modificacion=LecturaDatos.leerInt("1- Nombre\n2- Fecha de estreno\n3- Categoria\n > ");
 		switch(modificacion) {
 		case 1:
-			pelicula.setNombre(LecturaDatos.leerString("Nuevo nombre de pelicula"));
+			pelicula.setNombre(LecturaDatos.leerString("Nuevo nombre de pelicula: "));
 		case 2:
-			pelicula.setFechaEstreno(LecturaDatos.leerInt("Nueva fecha de estreno de pelicula"));
+			pelicula.setFechaEstreno(LecturaDatos.leerInt("Nueva fecha de estreno de pelicula: "));
 		case 3:
-			pelicula.setCategoria(LecturaDatos.leerInt("Escoge la categoria de la pelicula"));
+			pelicula.setCategoria(LecturaDatos.leerInt("Escoge la categoria de la pelicula: "));
 		}
 		
 		return true;
 	}
 
 	@Override
-	public void listaPeliculas() throws CatalogoException {
+	public boolean listaPeliculas() throws CatalogoException {
 		Integer codigo;
 		Iterator<Integer>peliculas=catalogo.keySet().iterator();
 		System.out.println("*** Listado de Peliculas ***");
 		while(peliculas.hasNext()) {
 			codigo=peliculas.next();
-			System.out.println("*"+codigo+"*"+catalogo.get(codigo));
-		}	
+			System.out.println(" > Codigo: "+codigo+catalogo.get(codigo));
+		}
+		return true;
 	}
 	
 	
