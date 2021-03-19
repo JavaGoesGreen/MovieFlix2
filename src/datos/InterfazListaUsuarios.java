@@ -23,5 +23,11 @@ public interface InterfazListaUsuarios {
 	
 	public boolean comprobarUsuario (int codigo) throws UsuarioException, Exception;
 	
+	public void usuariosDePrueba();
+	
+	public void importarUsuarios(String fichero);
+	
+	public void exportarUsuarios(String fichero);
+	
 
 }
