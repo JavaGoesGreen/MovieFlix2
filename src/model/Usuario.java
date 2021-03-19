@@ -46,12 +46,12 @@ public class Usuario {
 		this.ciudadResidencia = ciudadResidencia;
 	}
 	
-	// Métodos adicionales
+	// Mï¿½todos adicionales
 	public void crearUsuario() {
 		try {
-			this.nombreUsuario=LecturaDatos.leerString("Introduce el nombre del usuario");
-			this.ciudadResidencia=LecturaDatos.leerString("Introduce el nombre de la ciudad de residencia");
-			this.fechaNacimiento=LecturaDatos.leerInt("Introduce la fecha de nacimiento");
+			this.nombreUsuario=LecturaDatos.leerString("Introduce el nombre del usuario: ");
+			this.ciudadResidencia=LecturaDatos.leerString("Introduce el nombre de la ciudad de residencia: ");
+			this.fechaNacimiento=LecturaDatos.leerInt("Introduce la fecha de nacimiento: ");
 		}catch(Exception e) {
 			e.getStackTrace();
 		}
@@ -60,8 +60,8 @@ public class Usuario {
 	// toString
 	@Override
 	public String toString() {
-		return "Datos de usuario\n > Nombre: " + nombreUsuario + "\n > Fecha de nacimiento: " + fechaNacimiento
-				+ "\n > Ciudad de residencia=" + ciudadResidencia + "\n";
+		return "\n > Nombre: " + nombreUsuario + "\n > Fecha de nacimiento: " + fechaNacimiento
+				+ "\n > Ciudad de residencia: " + ciudadResidencia + "\n";
 	}
 
 }
