@@ -9,9 +9,15 @@
 
 package datos;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 
 import excepciones.UsuarioException;
 import model.Usuario;
@@ -89,6 +95,66 @@ public class ListaUsuario implements InterfazListaUsuarios {
 	public boolean comprobarUsuario(int codigo) throws UsuarioException {
 		return listaUsuarios.containsKey(codigo);
 	}
+	
+	
+	public void importarUsuarios(String fichero) {
+		System.out.println("-- Importando");
+		try {
+			CSVReader csvReader = new CSVReader(new FileReader(fichero));
+			String[] nextline;
+			while ((nextline = csvReader.readNext()) != null) {
+				if (nextline != null) {
+					int codigo = (int) (Math.random() * 100000);
+					String nombre = nextline[0];
+					int fecha = Integer.parseInt(nextline[1]);
+					String ciudad = nextline[2];
+					Usuario usuario = new Usuario(nombre, fecha, ciudad);
+					agregarUsuario(codigo, usuario);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+	}
+	
+	public void exportarUsuarios(String fichero) {
+		System.out.println("-- Exportando");
+		Integer codigo;
+		CSVWriter writer = null;
+		try {
+			writer = new CSVWriter(new FileWriter(fichero), ',', CSVWriter.NO_QUOTE_CHARACTER,
+					CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+			Iterator<Integer> usuarios = listaUsuarios.keySet().iterator();
+			while (usuarios.hasNext()) {
+				codigo = usuarios.next();
+				Usuario u = listaUsuarios.get(codigo);
+				String linea[] = { u.getNombreUsuario(), "" + u.getFechaNacimiento(), u.getCiudadResidencia() };
+				try {
+					writer.writeNext(linea);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} finally {
+			try {
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+    public void usuariosDePrueba() {
+        listaUsuarios.put(1, new Usuario("Maria", 1992, "Madrid"));
+        listaUsuarios.put(2, new Usuario("Juan", 1997, "Barcelona"));
+        listaUsuarios.put(3, new Usuario("Ramon", 1999, "Valencia"));
+        listaUsuarios.put(4, new Usuario("Edgar", 1984, "Sevilla"));
+        listaUsuarios.put(5, new Usuario("Lucia", 1971, "Bilbao"));
+        listaUsuarios.put(6, new Usuario("Rebeca", 2002, "Caceres"));
+    }
 
 	// toString
 	@Override
