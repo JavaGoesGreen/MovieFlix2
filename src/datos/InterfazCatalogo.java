@@ -9,6 +9,7 @@ public interface InterfazCatalogo {
 	public boolean existeCodigo(int codigo);
 	public boolean modificarPelicula(int codigo)throws CatalogoException; 
 	public boolean listaPeliculas() throws CatalogoException;
-
-
+	public void importarCatalogo(String fichero);
+	public void exportarCatalogo(String fichero);
+	public void peliculasDePrueba();
 }

@@ -5,11 +5,13 @@ import servicios.Servicios;
 import utilidades.LecturaDatos;
 import excepciones.CatalogoException;
 import gui.Menu;
+import gui.SubmenuPeliculas;
+import gui.SubmenuUsuarios;
 
 public class MovieFlix {
 	private InterfazServicios servicios = new Servicios();
 
-	public void abrirMenuPeliculas() {
+	public void abrirMenu() {
 		boolean seguir = true;
 		do {
 			Menu.mostrarMenu();
@@ -17,39 +19,35 @@ public class MovieFlix {
 		} while (seguir);
 		System.out.println("*** Fin de seccion de consulta ***");
 	}
-
+	
+	public void abrirMenuPeliculas() {
+		boolean seguirPeliculas = true;
+		do {
+			SubmenuPeliculas.mostrarMenu();
+			seguirPeliculas = seleccionOpcionesPeliculas();
+		} while (seguirPeliculas);
+		System.out.println("*** Volviendo al menú anterior ***");
+	}
+	
+	public void abrirMenuUsuarios() {
+		boolean seguirUsuarios = true;
+		do {
+			SubmenuUsuarios.mostrarMenu();
+			seguirUsuarios = seleccionOpcionesUsuarios();
+		} while (seguirUsuarios);
+		System.out.println("*** Volviendo al menú anterior ***");
+	}
+	
 	public boolean seleccionOpciones() {
 		boolean continuar = true;
 
 		try {
 			switch (LecturaDatos.leerInt()) {
-			case 1:
-				// AGREGAR PELICULA
-				servicios.agregarPelicula();
-				break;
-			// MODIFICAR PELICULA
-			case 2:
-				servicios.modificarPelicula();
-				break;
-			// ELIMINAR PELICULA
-			case 3:
-				servicios.eliminarPelicula();
-				break;
-			// LISTAR PELICULAS
-			case 4:
-				servicios.listarPeliculas();
-				break;
-			case 5:
-				servicios.agregarUsuario();
-				break;
-			case 6:
-				servicios.modificarUsuario();
-				break;
-			case 7:
-				servicios.eliminarUsuario();
-				break;
-			case 8:
-				servicios.verUsuarios();
+			case 1: // PELICULAS
+				abrirMenuPeliculas();
+				break; 
+			case 2: // USUARIOS
+				abrirMenuUsuarios();
 				break;
 			case 0:
 				continuar = salir();
@@ -59,10 +57,81 @@ public class MovieFlix {
 		} catch (CatalogoException e) {
 			System.out.println("error: " + e.toString());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return continuar;
+	}
+
+	public boolean seleccionOpcionesPeliculas() {
+		boolean continuarPeliculas = true;
+
+		try {
+			switch (LecturaDatos.leerInt()) {
+			case 1: // AGREGAR PELICULA
+				servicios.agregarPelicula();
+				break; 
+			case 2: // MODIFICAR PELICULA
+				servicios.modificarPelicula();
+				break;
+			case 3: // ELIMINAR PELICULA
+				servicios.eliminarPelicula();
+				break;
+			case 4: // LISTAR PELICULAS
+				servicios.listarPeliculas();
+				break;
+			case 5: // AGREGAR PELICULAS DE PRUEBA
+				servicios.peliculasDePrueba();
+				break;
+			case 6: // AGREGAR PELICULAS DE PRUEBA
+				servicios.importarCatalogo();
+				break;
+			case 7: // AGREGAR PELICULAS DE PRUEBA
+				servicios.exportarCatalogo();
+				break;
+			case 0:
+				continuarPeliculas = false;
+				break;
+			}
+		} catch (CatalogoException e) {
+			System.out.println("error: " + e.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return continuarPeliculas;
+	}
+	
+	public boolean seleccionOpcionesUsuarios() {
+		boolean continuarUsuarios = true;
+
+		try {
+			switch (LecturaDatos.leerInt()) {
+			case 1: // AGREGAR USUARIO
+				servicios.agregarUsuario();
+				break;
+			case 2: // MODIFICAR USUARIO
+				servicios.modificarUsuario();
+				break;
+			case 3: // ELIMINAR USUARIO
+				servicios.eliminarUsuario();
+				break;
+			case 4: // LISTAR USUARIOS
+				servicios.verUsuarios();
+				break;
+			case 5: // AGREGAR USUARIOS DE PRUEBA
+				servicios.usuariosDePrueba();;
+				break;
+			case 0:
+				continuarUsuarios = false;
+				break;
+			}
+
+		} catch (CatalogoException e) {
+			System.out.println("error: " + e.toString());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return continuarUsuarios;
 	}
 
 	private boolean salir() throws Exception {

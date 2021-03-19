@@ -118,7 +118,34 @@ public class Servicios implements InterfazServicios {
 		int codigo = LecturaDatos.leerInt("Ingresa codigo de usuario: ");
 		return modificarUsuario(codigo);
 	}
+	
+	public void peliculasDePrueba() {
+		catalogo.peliculasDePrueba();
+	}
 
+    public void exportarCatalogo() {
+        //Este es un fichero para guardar lo que generemos en consola
+        catalogo.exportarCatalogo("listado_peliculas.txt");
+    }
+
+    public void importarCatalogo() {
+        //Esta es la lista de Antonio
+        catalogo.importarCatalogo("peliculas_numCat.txt");
+    }
+    
+	public void usuariosDePrueba() {
+		usuario.usuariosDePrueba();
+	}
+    
+    public void exportarUsuarios() {
+        //Este es un fichero para guardar lo que generemos en consola
+        usuario.exportarUsuarios("listado_usuarios.txt");
+    }
+
+    public void importarUsuarios() {
+        //Esta es la lista de Antonio
+        usuario.importarUsuarios("listado_usuarios.txt");
+    }
 	
 	}
 

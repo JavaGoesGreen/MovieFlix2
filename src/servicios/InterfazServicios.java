@@ -20,6 +20,12 @@ public interface InterfazServicios {
 	public boolean modificarPelicula(int codigo) throws CatalogoException;
 
 	public boolean listarPeliculas() throws CatalogoException;
+	
+	public void peliculasDePrueba();
+	
+	public void importarCatalogo();
+	
+	public void exportarCatalogo();
 
 	public boolean verUsuarios() throws UsuarioException;
 
@@ -34,5 +40,11 @@ public interface InterfazServicios {
 	public boolean modificarUsuario(int codigo) throws UsuarioException, Exception;
 
 	public boolean modificarUsuario() throws UsuarioException, Exception;
+	
+	public void usuariosDePrueba();
+	
+	public void importarUsuarios();
+	
+	public void exportarUsuarios();
 
 }
