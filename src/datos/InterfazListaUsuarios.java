@@ -13,15 +13,15 @@ import model.Usuario;
 
 public interface InterfazListaUsuarios {
 
-	public void verUsuarios() throws UsuarioException;
+	public boolean verUsuarios() throws UsuarioException; 
 
-	public void agregarUsuario(int codigo, Usuario usuario) throws UsuarioException;
+	public boolean agregarUsuario(int codigo, Usuario usuario) throws UsuarioException;
 
-	public void eliminarUsuario(int codigo) throws UsuarioException;
+	public boolean eliminarUsuario(int codigo) throws UsuarioException, Exception;
 
-	public void modificarUsuario(int codigo) throws UsuarioException;
+	public boolean modificarUsuario(int codigo) throws UsuarioException;
 	
-	public boolean comprobarUsuario (int codigo);
+	public boolean comprobarUsuario (int codigo) throws UsuarioException, Exception;
 	
 
 }
