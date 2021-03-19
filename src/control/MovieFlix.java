@@ -13,9 +13,9 @@ public class MovieFlix {
 		boolean seguir = true;
 		do {
 			Menu.mostrarMenu();
-			seguir = this.seleccionOpciones();
+			seguir = seleccionOpciones();
 		} while (seguir);
-		System.out.println("*** Fin de secci�n de consulta ***");
+		System.out.println("*** Fin de seccion de consulta ***");
 	}
 
 	public boolean seleccionOpciones() {
@@ -27,21 +27,34 @@ public class MovieFlix {
 				// AGREGAR PELICULA
 				servicios.agregarPelicula();
 				break;
-				//MODIFICAR PELICULA
+			// MODIFICAR PELICULA
 			case 2:
 				servicios.modificarPelicula();
-				//ELIMINAR PELICULA
+				break;
+			// ELIMINAR PELICULA
 			case 3:
 				servicios.eliminarPelicula();
 				break;
-				//LISTAR PELICULAS
+			// LISTAR PELICULAS
 			case 4:
 				servicios.listarPeliculas();
+				break;
+			case 5:
+				servicios.agregarUsuario();
+				break;
+			case 6:
+				servicios.modificarUsuario();
+				break;
+			case 7:
+				servicios.eliminarUsuario();
+				break;
+			case 8:
+				servicios.verUsuarios();
+				break;
 			case 0:
 				continuar = salir();
 				break;
 			}
-
 
 		} catch (CatalogoException e) {
 			System.out.println("error: " + e.toString());
@@ -53,7 +66,7 @@ public class MovieFlix {
 	}
 
 	private boolean salir() throws Exception {
-		String decidir = LecturaDatos.leerString(" �Quieres salir?(S/N");
+		String decidir = LecturaDatos.leerString(" Quieres salir?(S/N) ");
 		return (decidir.toUpperCase().charAt(0) != 'S');
 	}
 }

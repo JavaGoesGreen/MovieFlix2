@@ -33,21 +33,28 @@ public enum Categorias {
     }	
 
     public static Categorias dimeCategorias(int valor) {
-    	Categorias c =Categorias.values()[valor];
+    	Categorias c =Categorias.policiaca;
     	switch(valor) {
     	case 1:
     		c=Categorias.policiaca;
-    		
+    		break;
     	case 2:
     		c=Categorias.romantica;
+    		break;
     	case 3:
     		c=Categorias.aventuras;
+    		break;
     	case 4:
     		c=Categorias.comedia;
+    		break;
     	case 5:
     	    c=Categorias.animacion;
+    	    break;
     	case 6:
     		c=Categorias.thriller;
+    		break;
+    	default:
+    		c=Categorias.policiaca;
     	}
     	return c;
     	
