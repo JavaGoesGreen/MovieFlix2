@@ -61,13 +61,14 @@ public class Pelicula {
 	}
 
 	
-	// Métodos adicionales
+	// Metodos adicionales
 	public void crearPelicula() {
 		//Se introduce las visualizaciones y la valoracion?
 		try {
-			this.nombre=LecturaDatos.leerString("Introduce el nombre de la pelicula");
-			this.categoria=Categorias.dimeUnaCategoria(LecturaDatos.leerInt());
-			this.fechaEstreno=LecturaDatos.leerInt("Introduce la fecha de la pelicula");
+			this.nombre=LecturaDatos.leerString("Introduce el nombre de la pelicula: ");
+			System.out.println("Categorias disponibles:\n >  1.Policiaca \n >  2.Romantica \n >  3.Aventuras \n >  4.Comedia \n >  5.Animacion \n >  6.Thriller ");
+			this.categoria=Categorias.dimeCategorias(LecturaDatos.leerInt("Introduce el numero de categoria: "));
+			this.fechaEstreno=LecturaDatos.leerInt("Introduce la fecha de la pelicula: ");
 		}catch(Exception e) {
 			e.getStackTrace();
 		}
@@ -76,8 +77,8 @@ public class Pelicula {
 	// toString
 	@Override
 	public String toString() {
-		return "Datos de pelicula\n > Nombre: " + nombre + "\n > Fecha de estreno: " + fechaEstreno + "\n > Valoración media: " + valoracion
-				+ "\n > Nº visualizaciones: " + visualizaciones + "\n > Categoria: " + categoria + "\n";
+		return "\n > Nombre: " + nombre + "\n > Fecha de estreno: " + fechaEstreno + "\n > Valoracion media: " + valoracion
+				+ "\n > Numero de visualizaciones: " + visualizaciones + "\n > Categoria: " + categoria + "\n";
 	}
 
 }
