@@ -88,6 +88,21 @@ public class MovieFlix {
 			case 7: // AGREGAR PELICULAS DE PRUEBA
 				servicios.exportarCatalogo();
 				break;
+			case 8:
+				servicios.darValoracion();
+				break;
+			case 9:
+				servicios.ordenarPeores();
+				break;
+			case 10:
+				servicios.ordenarMejores();
+				break;
+			case 11:
+				servicios.darVisitas();
+				break;
+			case 12:
+				servicios.ordenarMasVistas();
+				break;
 			case 0:
 				continuarPeliculas = false;
 				break;
