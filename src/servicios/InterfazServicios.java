@@ -26,6 +26,16 @@ public interface InterfazServicios {
 	public void importarCatalogo();
 	
 	public void exportarCatalogo();
+	
+	public boolean darValoracion();
+	
+	public void ordenarPeores();
+	
+	public void ordenarMejores();
+	
+	public boolean darVisitas();
+	
+	public void ordenarMasVistas();
 
 	public boolean verUsuarios() throws UsuarioException;
 
@@ -46,5 +56,6 @@ public interface InterfazServicios {
 	public void importarUsuarios();
 	
 	public void exportarUsuarios();
+	
 
 }

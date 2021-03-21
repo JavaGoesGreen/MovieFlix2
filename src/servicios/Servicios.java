@@ -66,6 +66,27 @@ public class Servicios implements InterfazServicios {
 	public boolean listarPeliculas() throws CatalogoException {
 		return catalogo.listaPeliculas();
 	}
+	
+	public boolean darValoracion() {
+		return catalogo.darValoracion();
+	}
+	
+	public void ordenarPeores() {
+		catalogo.ordenarPeores();
+	}
+	
+	public void ordenarMejores() {
+		catalogo.ordenarMejores();
+	}
+	
+	public boolean darVisitas() {
+		return catalogo.darVisitas();
+	} 
+	
+	public void ordenarMasVistas() {
+		catalogo.ordenarMasVistas();
+	}
+	
 
 	@Override
 	public boolean verUsuarios() throws UsuarioException {
