@@ -1,9 +1,13 @@
 package datos;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Iterator;
-
+import java.util.LinkedHashMap;
+import java.util.ListIterator;
 import java.io.IOException;
 import excepciones.CatalogoException;
 
@@ -13,8 +17,11 @@ import utilidades.LecturaDatos;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.stream.*;
 
 public class Catalogo implements InterfazCatalogo {
 
@@ -146,5 +153,87 @@ public class Catalogo implements InterfazCatalogo {
 		catalogo.put(4, new Pelicula("El caballero oscuro", 2008, Categorias.thriller));
 		catalogo.put(5, new Pelicula("Interstellar", 2014, Categorias.aventuras));
 		catalogo.put(6, new Pelicula("El caso Bourne", 2002, Categorias.policiaca));
+	}
+	
+	public boolean darValoracion() {
+		Integer codigo;
+		Iterator<Integer> peliculas = catalogo.keySet().iterator();
+		while (peliculas.hasNext()) {
+			codigo = peliculas.next();
+			Pelicula p = catalogo.get(codigo);
+			p.setValoracion((int)(Math.random()*5.9));
+		}
+		return true;
+	}
+	
+	public boolean darVisitas() {
+		Integer codigo;
+		Iterator<Integer> peliculas = catalogo.keySet().iterator();
+		while (peliculas.hasNext()) {
+			codigo = peliculas.next();
+			Pelicula p = catalogo.get(codigo);
+			p.setVisualizaciones((int)(Math.random()*1000));
+		}
+		return true;
+	}
+	
+	public Map<Integer, Pelicula> ordenarValoracion() {
+		Map<Integer, Pelicula> resultSet = catalogo.entrySet()
+	            .stream()
+	            .sorted(Comparator.comparingInt(e -> e.getValue().getValoracion()))
+	            .collect(Collectors.toMap(Map.Entry::getKey,
+	                    Map.Entry::getValue,
+	                    (left, right) -> left,
+	                    LinkedHashMap::new));
+		return resultSet;
+	}
+	
+	public void ordenarPeores() {
+		Map<Integer, Pelicula> resultSet = ordenarValoracion();
+		
+		Integer codigo;
+		Iterator<Integer> peliculas = resultSet.keySet().iterator();
+		System.out.println("*** Listado de Peliculas ***");
+		while (peliculas.hasNext()) {
+			codigo = peliculas.next();
+			System.out.println(" > Codigo: " + codigo + resultSet.get(codigo));
+			}
+	}
+	
+	public void ordenarMejores() {
+		Map<Integer, Pelicula> resultSet = ordenarValoracion();
+		
+		ListIterator<Map.Entry<Integer, Pelicula>> iterator = new ArrayList<Map.Entry<Integer, Pelicula>>(resultSet.entrySet()).listIterator(resultSet.size());
+		System.out.println("*** Listado de Peliculas ***");
+		while (iterator.hasPrevious()) {
+			Map.Entry<Integer, Pelicula> entry = iterator.previous();
+			String valor = ""+entry;
+			valor = valor.replace("=", "");
+			System.out.println(" > Codigo: " + valor);
+			}	
+	}
+	
+	public void ordenarMasVistas() {
+		Map<Integer, Pelicula> resultSet = catalogo.entrySet()
+	            .stream()
+	            .sorted(Comparator.comparingInt(e -> e.getValue().getVisualizaciones()))
+	            .collect(Collectors.toMap(Map.Entry::getKey,
+	                    Map.Entry::getValue,
+	                    (left, right) -> left,
+	                    LinkedHashMap::new));
+		
+		ListIterator<Map.Entry<Integer, Pelicula>> iterator = new ArrayList<Map.Entry<Integer, Pelicula>>(resultSet.entrySet()).listIterator(resultSet.size());
+		System.out.println("*** Listado de Peliculas ***");
+		while (iterator.hasPrevious()) {
+			Map.Entry<Integer, Pelicula> entry = iterator.previous();
+			String valor = ""+entry;
+			valor = valor.replace("=", "");
+			System.out.println(" > Codigo: " + valor);
+			}	
+	}
+	
+	@Override
+	public String toString() {
+		return "Catalogo [catalogo=" + catalogo + "]";
 	}
 }
