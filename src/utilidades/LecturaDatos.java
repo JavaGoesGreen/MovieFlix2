@@ -1,6 +1,18 @@
+
 package utilidades;
-//libreria para usar métodos Scanner
 import java.util.Scanner;
+
+/**
+ * <p><b> Nombre </b> LecturaDatos</p>
+ * 
+ * <p><strong>Descripcion </strong>clase con metodos para leer datos</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @version	v1
+ * 
+ * @since	17/03/2021
+ */
+//libreria para usar métodos Scanner
 
 @SuppressWarnings ("resource")
 public class LecturaDatos {
