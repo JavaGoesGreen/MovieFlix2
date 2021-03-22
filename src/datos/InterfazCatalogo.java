@@ -2,6 +2,20 @@ package datos;
 
 import excepciones.CatalogoException;
 import model.Pelicula;
+/**
+ * <p><b> Nombre </b>  InterfazCatalogo</p>
+ * 
+ * <p><strong>Descripcion </strong>clase que contiene todo los metodos relacionados con peliculas</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @author	Gintare Bartuseviciute
+ * @author	Dario Denche
+ * @author	Toni Blanche
+ * @author	Yelder Da Silva
+ * @version	v4
+ * 
+ * @since	21/03/2021
+ */
 
 public interface InterfazCatalogo {
 
@@ -30,4 +44,10 @@ public interface InterfazCatalogo {
 	public boolean darVisitas();
 	
 	public void ordenarMasVistas();
+	
+	public boolean listaPeliculasCat() throws CatalogoException;
+	
+	public boolean listaVisualizacionesCategorias() throws CatalogoException;
+	
+	public void ordenarPorEncimaMedia() throws CatalogoException;
 }
