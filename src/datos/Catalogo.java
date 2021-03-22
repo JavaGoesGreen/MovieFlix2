@@ -1,9 +1,11 @@
+
 package datos;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.ListIterator;
@@ -19,8 +21,20 @@ import com.opencsv.CSVWriter;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.stream.*;
-
+/**
+ * <p><b> Nombre </b>  Catalogo</p>
+ * 
+ * <p><strong>Descripcion </strong> clase que contiene todo los metodos relacionados con peliculas</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @author	Gintare Bartuseviciute
+ * @author	Dario Denche
+ * @author	Toni Blanche
+ * @author	Yelder Da Silva
+ * @version	v4
+ * 
+ * @since	21/03/2021
+ */
 public class Catalogo implements InterfazCatalogo {
 
 	// Atributo
@@ -76,6 +90,8 @@ public class Catalogo implements InterfazCatalogo {
 		case 2:
 			pelicula.setFechaEstreno(LecturaDatos.leerInt("Nueva fecha de estreno de pelicula: "));
 		case 3:
+			System.out.println("Categorias disponibles");
+			System.out.println(" 1-Policiaca\n 2-Romantica\n 3-Aventuras\n 4-Comedia\n 5-Animacion\n 6-Thriller");
 			pelicula.setCategoria(LecturaDatos.leerInt("Escoge la categoria de la pelicula: "));
 		}
 
@@ -229,6 +245,69 @@ public class Catalogo implements InterfazCatalogo {
 			System.out.println(" > Codigo: " + valor);
 			}	
 	}
+
+		public boolean listaPeliculasCat() throws CatalogoException {
+		System.out.println("Categorias disponibles");
+		System.out.println(" 1-Policiaca\n 2-Romantica\n 3-Aventuras\n 4-Comedia\n 5-Animacion\n 6-Thriller");
+		int pregunta = LecturaDatos.leerInt("Qué categoria quieres listar? ");
+		
+		Integer codigo;
+		Iterator<Integer> peliculas = catalogo.keySet().iterator();
+		System.out.println("\n*** Listado de Peliculas ***");
+		while (peliculas.hasNext()) {
+			codigo = peliculas.next();
+			if(catalogo.get(codigo).getCategoria().getCategoria() == pregunta) {
+				System.out.println(" > Codigo: " + codigo + catalogo.get(codigo));
+			}
+		}
+		return true;
+	}
+		
+		public boolean listaVisualizacionesCategorias() throws CatalogoException {
+		System.out.println("Categorias disponibles");
+		System.out.println(" 1-Policiaca\n 2-Romantica\n 3-Aventuras\n 4-Comedia\n 5-Animacion\n 6-Thriller");
+		int pregunta = LecturaDatos.leerInt("Qué categoria quieres listar? ");
+		
+		
+		Map<Integer, Pelicula> resultSet = catalogo.entrySet()
+	            .stream()
+	            .sorted(Comparator.comparingInt(e -> e.getValue().getVisualizaciones()))
+	            .collect(Collectors.toMap(Map.Entry::getKey,
+	                    Map.Entry::getValue,
+	                    (left, right) -> left,
+	                    LinkedHashMap::new));
+		
+		ListIterator<Map.Entry<Integer, Pelicula>> iterator = new ArrayList<Map.Entry<Integer, Pelicula>>(resultSet.entrySet()).listIterator(resultSet.size());
+		System.out.println("*** Listado de Peliculas ***");
+		while (iterator.hasPrevious()) {
+			Map.Entry<Integer, Pelicula> entry = iterator.previous();
+			Pelicula p = entry.getValue();
+			if(p.getCategoria().getCategoria() == pregunta) {
+				String valor = ""+entry;
+				valor = valor.replace("=", "");
+				System.out.println(" > Codigo: " + valor);
+			}
+		}	
+		return true;
+	}
+		
+	
+		public void ordenarPorEncimaMedia() throws CatalogoException {
+			Float media = (float) LecturaDatos.leerDouble("¿A partir de que valoracion quieres listar peliculas?");
+			Map<Integer, Pelicula> resultSet = ordenarValoracion();
+			
+			ListIterator<Map.Entry<Integer, Pelicula>> iterator = new ArrayList<Map.Entry<Integer, Pelicula>>(resultSet.entrySet()).listIterator(resultSet.size());
+			System.out.println("*** Listado de Peliculas ***");
+			while (iterator.hasPrevious()) {
+				Map.Entry<Integer, Pelicula> entry = iterator.previous();
+				Pelicula p = entry.getValue();
+				if(p.getValoracion() >= media) {
+					String valor = ""+entry;
+					valor = valor.replace("=", "");
+					System.out.println(" > Codigo: " + valor);
+				}
+			}	
+		}
 	
 	@Override
 	public String toString() {

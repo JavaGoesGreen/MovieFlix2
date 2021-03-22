@@ -8,6 +8,21 @@ import gui.Menu;
 import gui.SubmenuListadoPeliculas;
 import gui.SubmenuPeliculas;
 import gui.SubmenuUsuarios;
+/**
+ * <p><b> Nombre </b>  MovieFlix</p>
+ * 
+ * <p><strong>Descripcion </strong> ejecutador de menus GUI</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @author	Gintare Bartuseviciute
+ * @author	Dario Denche
+ * @author	Toni Blanche
+ * @author	Yelder Da Silva
+ * @version	v4
+ * 
+ * @since	21/03/2021
+ */
+
 
 public class MovieFlix {
 	private InterfazServicios servicios = new Servicios();
@@ -34,7 +49,7 @@ public class MovieFlix {
 		boolean seguirPeliculas = true;
 		do {
 			SubmenuListadoPeliculas.mostrarMenu();
-			seguirPeliculas = seleccionOpcionesPeliculas();
+			seguirPeliculas = seleccionOpcionesListadoPeliculas();
 		} while (seguirPeliculas);
 		System.out.println("*** Volviendo al menú anterior ***");
 	}
@@ -121,17 +136,26 @@ public class MovieFlix {
 
 		try {
 			switch (LecturaDatos.leerInt()) {
-			case 1: // LISTAR PELICULAS
+			case 1: 
 				servicios.listarPeliculas();
 				break;
-			case 2: // AGREGAR PELICULAS DE PRUEBA
+			case 2: 
 				servicios.ordenarPeores();
 				break;
-			case 3: // AGREGAR PELICULAS DE PRUEBA
+			case 3: 
 				servicios.ordenarMejores();
 				break;
-			case 4: // AGREGAR PELICULAS DE PRUEBA
+			case 4: 
 				servicios.ordenarMasVistas();
+				break;
+			case 5: 
+				servicios.listaPeliculasCat();
+				break;
+			case 6:
+				servicios.listaVisualizacionesCategorias();
+				break;
+			case 7:
+				servicios.ordenarPorEncimaMedia();
 				break;
 			case 0:
 				continuarPeliculas = false;

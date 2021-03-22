@@ -4,6 +4,16 @@ import excepciones.CatalogoException;
 import excepciones.UsuarioException;
 import model.Pelicula;
 import model.Usuario;
+/**
+ * <p><b> Nombre </b> InterfazServicios</p>
+ * 
+ * <p><strong>Descripcion </strong>Metodos para implementar clase servicios</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @version	v1
+ * 
+ * @since	17/03/2021
+ */
 
 public interface InterfazServicios {
 
@@ -37,6 +47,12 @@ public interface InterfazServicios {
 	
 	public void ordenarMasVistas();
 
+	public boolean listaPeliculasCat() throws CatalogoException;
+	
+	public boolean listaVisualizacionesCategorias() throws CatalogoException;
+	
+	public void ordenarPorEncimaMedia() throws CatalogoException;
+	
 	public boolean verUsuarios() throws UsuarioException;
 
 	public boolean agregarUsuario(Usuario usuario) throws UsuarioException;

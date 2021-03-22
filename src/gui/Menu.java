@@ -1,4 +1,16 @@
 package gui;
+/**
+ * <p><b> Nombre </b>  Menu</p>
+ * 
+ * <p><strong>Descripcion </strong> interfaz grafica del menu</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @author	Gintare Bartuseviciute
+ * 
+ * @version	v4
+ * 
+ * @since	21/03/2021
+ */
 
 public class Menu {
 	
