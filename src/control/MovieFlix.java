@@ -5,6 +5,7 @@ import servicios.Servicios;
 import utilidades.LecturaDatos;
 import excepciones.CatalogoException;
 import gui.Menu;
+import gui.SubmenuListadoPeliculas;
 import gui.SubmenuPeliculas;
 import gui.SubmenuUsuarios;
 
@@ -24,6 +25,15 @@ public class MovieFlix {
 		boolean seguirPeliculas = true;
 		do {
 			SubmenuPeliculas.mostrarMenu();
+			seguirPeliculas = seleccionOpcionesPeliculas();
+		} while (seguirPeliculas);
+		System.out.println("*** Volviendo al menú anterior ***");
+	}
+	
+	public void abrirMenuListadoPeliculas() {
+		boolean seguirPeliculas = true;
+		do {
+			SubmenuListadoPeliculas.mostrarMenu();
 			seguirPeliculas = seleccionOpcionesPeliculas();
 		} while (seguirPeliculas);
 		System.out.println("*** Volviendo al menú anterior ***");
@@ -76,31 +86,51 @@ public class MovieFlix {
 			case 3: // ELIMINAR PELICULA
 				servicios.eliminarPelicula();
 				break;
-			case 4: // LISTAR PELICULAS
-				servicios.listarPeliculas();
-				break;
-			case 5: // AGREGAR PELICULAS DE PRUEBA
+			case 4: // AGREGAR PELICULAS DE PRUEBA
 				servicios.peliculasDePrueba();
 				break;
-			case 6: // AGREGAR PELICULAS DE PRUEBA
-				servicios.importarCatalogo();
-				break;
-			case 7: // AGREGAR PELICULAS DE PRUEBA
-				servicios.exportarCatalogo();
-				break;
-			case 8:
+			case 5: // AGREGAR VALORACIÓN DE PRUEBA
 				servicios.darValoracion();
 				break;
-			case 9:
-				servicios.ordenarPeores();
-				break;
-			case 10:
-				servicios.ordenarMejores();
-				break;
-			case 11:
+			case 6: // AGREGAR VISITAS DE PRUEBA
 				servicios.darVisitas();
 				break;
-			case 12:
+			case 7: // IMPORTAR PELICULAS
+				servicios.importarCatalogo();
+				break;
+			case 8: // EXPORTAR PELICULAS
+				servicios.exportarCatalogo();
+				break;
+			case 9: // LISTAR PELICULAS
+				abrirMenuListadoPeliculas();
+				break;
+			case 0:
+				continuarPeliculas = false;
+				break;
+			}
+		} catch (CatalogoException e) {
+			System.out.println("error: " + e.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return continuarPeliculas;
+	}
+	
+	public boolean seleccionOpcionesListadoPeliculas() {
+		boolean continuarPeliculas = true;
+
+		try {
+			switch (LecturaDatos.leerInt()) {
+			case 1: // LISTAR PELICULAS
+				servicios.listarPeliculas();
+				break;
+			case 2: // AGREGAR PELICULAS DE PRUEBA
+				servicios.ordenarPeores();
+				break;
+			case 3: // AGREGAR PELICULAS DE PRUEBA
+				servicios.ordenarMejores();
+				break;
+			case 4: // AGREGAR PELICULAS DE PRUEBA
 				servicios.ordenarMasVistas();
 				break;
 			case 0:
