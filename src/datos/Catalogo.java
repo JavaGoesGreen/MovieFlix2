@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.ListIterator;
@@ -17,7 +16,6 @@ import utilidades.LecturaDatos;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -42,7 +40,7 @@ public class Catalogo implements InterfazCatalogo {
 		this.catalogo = catalogo;
 	}
 
-	// M�todos adicionales
+	// Metodos adicionales
 	public boolean agregarPelicula(int codigo, Pelicula p) throws CatalogoException {
 		if (catalogo.containsKey(codigo)) {
 			// Necesario system out?
