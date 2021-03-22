@@ -1,15 +1,16 @@
-/**
- * @name:Usuarios
- * @description: clase molde que contiene los datos para crear usuarios
- * @date: 17/03/2021
- * @version: v1
- * @author: Antonia Hidalgo
- * 
- */
-
 package model;
 
 import utilidades.LecturaDatos;
+/**
+ * <p><b> Nombre </b> Usuario</p>
+ * 
+ * <p><strong>Descripcion </strong>clase molde que contiene los datos para crear usuarios</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @version	v1
+ * 
+ * @since	17/03/2021
+ */
 
 public class Usuario {
 
