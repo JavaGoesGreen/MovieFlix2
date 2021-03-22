@@ -1,15 +1,18 @@
-/**
- * @name: InterfazListaUsuarios
- * @description: Interfaz que contiene los metodos para gestionar usuarios
- * @date: 17/03/2021
- * @version: v1
- * @author: Antonia Hidalgo
- * 
- */
 package datos;
 
 import excepciones.UsuarioException;
 import model.Usuario;
+/**
+ * <p><b> Nombre </b>  InterfazListaUsuario</p>
+ * 
+ * <p><strong>Descripcion </strong>Interfaz que contiene los metodos para gestionar usuarios</p>
+ * 
+ * @author	Antonia Hidalgo
+ * 
+ * @version	v1
+ * 
+ * @since	17/03/2021
+ */
 
 public interface InterfazListaUsuarios {
 

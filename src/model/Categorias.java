@@ -1,7 +1,17 @@
 package model;
 
-
 import model.Categorias;
+/**
+ * <p><b> Nombre </b> Categorias</p>
+ * 
+ * <p><strong>Descripcion </strong> clase molde que contiene los datos para crear categorias</p>
+ * 
+ * @author	Toni Blanche
+ * 
+ * @version	v1
+ * 
+ * @since	19/03/2021
+ */
 
 public enum Categorias {
 	

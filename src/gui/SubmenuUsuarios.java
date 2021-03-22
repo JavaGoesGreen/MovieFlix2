@@ -1,4 +1,18 @@
 package gui;
+/**
+ * <p><b> Nombre </b> SubmenuUsuarios</p>
+ * 
+ * <p><strong>Descripcion </strong> interfaz grafica de usuarios</p>
+ * 
+ * @author	Antonia Hidalgo
+ * @author	Gintare Bartuseviciute
+ * @author	Dario Denche
+ * @author	Toni Blanche
+ * @author	Yelder Da Silva
+ * @version	v4
+ * 
+ * @since	21/03/2021
+ */
 
 public class SubmenuUsuarios {
 	
