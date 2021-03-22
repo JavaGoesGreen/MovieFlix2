@@ -3,6 +3,16 @@ package model;
 import java.io.Serializable;
 
 import utilidades.LecturaDatos;
+/**
+ * <p><b> Nombre </b> Pelicula</p>
+ * 
+ * <p><strong>Descripcion </strong> clase molde que contiene los datos para crear peliculas</p>
+ * 
+ * @author	Yelder Da Silva
+ * @version	v1
+ * 
+ * @since	20/03/2021
+ */
 
 public class Pelicula implements Serializable {
 

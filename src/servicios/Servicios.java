@@ -9,6 +9,16 @@ import excepciones.UsuarioException;
 import model.Pelicula;
 import model.Usuario;
 import utilidades.LecturaDatos;
+/**
+ * <p><b> Nombre </b> Servicios</p>
+ * 
+ * <p><strong>Descripcion </strong>clase que contiene la capa intermedia entre Datos y Control</p>
+ * 
+ * @author	Dario Denche
+ * @version	v3
+ * 
+ * @since	21/03/2021
+ */
 
 public class Servicios implements InterfazServicios {
 
@@ -87,6 +97,17 @@ public class Servicios implements InterfazServicios {
 		catalogo.ordenarMasVistas();
 	}
 	
+	public boolean listaPeliculasCat() throws CatalogoException{
+		return catalogo.listaPeliculasCat();
+	}
+	
+	public boolean listaVisualizacionesCategorias() throws CatalogoException {
+		return catalogo.listaVisualizacionesCategorias();
+	}
+	
+	public void ordenarPorEncimaMedia() throws CatalogoException{
+		catalogo.ordenarPorEncimaMedia();
+	}
 
 	@Override
 	public boolean verUsuarios() throws UsuarioException {

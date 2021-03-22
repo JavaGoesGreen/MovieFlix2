@@ -1,11 +1,3 @@
-/**
- * @name: ListaUsuarios
- * @description: clase que implementa la interfaz homonima y contiene los algoritmos de los metodos CRUD
- * @date: 17/03/2021
- * @version: v1
- * @author: Antonia Hidalgo
- * 
- */
 
 package datos;
 
@@ -22,6 +14,18 @@ import com.opencsv.CSVWriter;
 import excepciones.UsuarioException;
 import model.Usuario;
 import utilidades.LecturaDatos;
+
+/**
+ * <p><b> Nombre </b>  ListaUsuarios</p>
+ * 
+ * <p><strong>Descripcion </strong>clase que implementa la interfazListaUsuario y contiene los algoritmos de los metodos CRUD</p>
+ * 
+ * @author	Antonia Hidalgo
+ * 
+ * @version	v1
+ * 
+ * @since	17/03/2021
+ */
 
 public class ListaUsuario implements InterfazListaUsuarios {
 
